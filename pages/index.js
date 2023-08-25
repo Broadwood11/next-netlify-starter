@@ -88,25 +88,50 @@ export default function Home() {
     <div className="form-container">
       {/* Form with each input on a separate line */}
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
-        </div>
-        <div className="input-container">
-          <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
-        </div>
-        <div className="input-container">
-          <input type="text" name="intent1" placeholder="Intent 1" required onChange={handleInputChange} />
-        </div>
-        <div className="input-container">
-          <input type="text" name="intent2" placeholder="Intent 2" required onChange={handleInputChange} />
-        </div>
-        <div className="input-container">
-          <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
-        </div>
-        {/* Other fields as needed */}
-        <button type="submit">Generate Email</button>
-      </form>
-    </div>
+  <div className="input-container">
+    <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
+  </div>
+  <div className="input-container">
+    <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
+  </div>
+  <div className="input-container">
+    <select name="intent1" required onChange={handleInputChange}>
+      <option value="" disabled selected>Select Intent 1</option>
+      <option value="Citrix">Citrix</option>
+      <option value="VMware">VMware</option>
+      <option value="VDI">VDI</option>
+      <option value="DaaS">DaaS</option>
+      <option value="Ransomware">Ransomware</option>
+      <option value="AVD">AVD</option>
+      <option value="W365">W365</option>
+    </select>
+  </div>
+  <div className="input-container">
+    <select name="intent2" required onChange={handleInputChange}>
+      <option value="" disabled selected>Select Intent 2</option>
+      <option value="Citrix">Citrix</option>
+      <option value="VMware">VMware</option>
+      <option value="VDI">VDI</option>
+      <option value="DaaS">DaaS</option>
+      <option value="Ransomware">Ransomware</option>
+      <option value="AVD">AVD</option>
+      <option value="W365">W365</option>
+    </select>
+  </div>
+  <div className="input-container">
+    <select name="KeyChallenge" required onChange={handleInputChange}>
+      <option value="" disabled selected>Select Key Challenge</option>
+      <option value="Security and Compliance">Security and Compliance</option>
+      <option value="Scalability and Flexibility">Scalability and Flexibility</option>
+      <option value="Simplifying Management">Simplifying Management</option>
+      <option value="Ecosystem Compatibility">Ecosystem Compatibility</option>
+      <option value="User Experience">User Experience</option>
+    </select>
+  </div>
+  {/* Other fields as needed */}
+  <button type="submit">Generate Email</button>
+</form>
+
 
     {/* Display email content below the form */}
     <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
