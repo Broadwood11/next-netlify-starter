@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 export default function Home() {
 
-  const conversation_id = process.env.CONVERSATION_ID;
-  const access_token = process.env.ACCESS_TOKEN;
+  const conversation_id = "X46dBNq2Jd79";
+  const access_token = 'kRkX76Nm8u2Og6ZoZGct4KmprDZ1PkjMVJXK1IYa';
   // State to hold the form input
   const [formData, setFormData] = useState({
     firstname: '',
