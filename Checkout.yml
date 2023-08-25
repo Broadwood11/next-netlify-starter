@@ -1,5 +1,5 @@
 steps:
-  - name: Checkout code
+  - name: Checkout
     uses: actions/checkout@v2
 
   - name: Set up environment variables
