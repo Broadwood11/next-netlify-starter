@@ -95,6 +95,7 @@ export default function Home() {
             <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
             {/* Other fields as needed */}
             <button type="submit">Generate Email</button>
+            <p>Once submitted, wait for at least 10 seconds.</p>
           </form>
 
           {/* Display email content on the right side */}
