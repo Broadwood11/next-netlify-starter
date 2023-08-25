@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 export default function Home() {
 
+  export default function Home() {
+
   const conversation_id = "X46dBNq2Jd79";
   const access_token = 'kRkX76Nm8u2Og6ZoZGct4KmprDZ1PkjMVJXK1IYa';
   // State to hold the form input
@@ -76,85 +78,47 @@ export default function Home() {
   };
 
   return (
-<div className="container">
-  <Head>
-    <title>Next.js Starter!</title>
-    <link rel="icon" href="/favicon.ico" />
-  </Head>
+  return (
+    <div className="container">
+      <Head>
+        <title>Next.js Starter!</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-  <main>
-    <Header title="Welcome!" />
+      <main>
+        <Header title="Welcome!" />
 
-    <div className="form-container">
-      {/* Form with each input on a separate line */}
-      <form onSubmit={handleSubmit}>
-  <div className="input-container">
-    <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
-  </div>
-  <div className="input-container">
-    <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
-  </div>
-  <div className="input-container">
-    <select name="intent1" required onChange={handleInputChange}>
-      <option value="" disabled selected>Select Intent 1</option>
-      <option value="Citrix">Citrix</option>
-      <option value="VMware">VMware</option>
-      <option value="VDI">VDI</option>
-      <option value="DaaS">DaaS</option>
-      <option value="Ransomware">Ransomware</option>
-      <option value="AVD">AVD</option>
-      <option value="W365">W365</option>
-    </select>
-  </div>
-  <div className="input-container">
-    <select name="intent2" required onChange={handleInputChange}>
-      <option value="" disabled selected>Select Intent 2</option>
-      <option value="Citrix">Citrix</option>
-      <option value="VMware">VMware</option>
-      <option value="VDI">VDI</option>
-      <option value="DaaS">DaaS</option>
-      <option value="Ransomware">Ransomware</option>
-      <option value="AVD">AVD</option>
-      <option value="W365">W365</option>
-    </select>
-  </div>
-  <div className="input-container">
-    <select name="KeyChallenge" required onChange={handleInputChange}>
-      <option value="" disabled selected>Select Key Challenge</option>
-      <option value="Security and Compliance">Security and Compliance</option>
-      <option value="Scalability and Flexibility">Scalability and Flexibility</option>
-      <option value="Simplifying Management">Simplifying Management</option>
-      <option value="Ecosystem Compatibility">Ecosystem Compatibility</option>
-      <option value="User Experience">User Experience</option>
-    </select>
-  </div>
-  {/* Other fields as needed */}
-  <button type="submit">Generate Email</button>
-</form>
+        <div className="form-container">
+          {/* Form for input on the left side */}
+          <form onSubmit={handleSubmit}>
+            <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
+            <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
+            <input type="text" name="intent1" placeholder="Intent 1" required onChange={handleInputChange} />
+            <input type="text" name="intent2" placeholder="Intent 2" required onChange={handleInputChange} />
+            <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
+            {/* Other fields as needed */}
+            <button type="submit">Generate Email</button>
+          </form>
 
+          {/* Display email content on the right side */}
+          <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
+        </div>
+      </main>
 
-    {/* Display email content below the form */}
-    <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
-  </main>
+      <Footer />
 
-  <Footer />
-
-  <style jsx>{`
-    .form-container {
-      /* No flex needed; stack inputs vertically */
-    }
-    .input-container {
-      /* Add space between each input */
-      margin-bottom: 10px;
-    }
-    .email-content {
-      /* Adjust width as needed; border and padding remain the same */
-      width: 100%;
-      border: 1px solid #ddd;
-      padding: 10px;
-    }
-    // Add other styles as needed
-  `}</style>
-  </div> 
-);
-
+      <style jsx>{`
+        .form-container {
+          display: flex;
+          justify-content: space-between;
+        }
+        .email-content {
+          width: 50%;
+          border: 1px solid #ddd;
+          padding: 10px;
+        }
+        // Add other styles as needed
+      `}</style>
+    </div>
+  );
+}
