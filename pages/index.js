@@ -13,6 +13,7 @@ export default function Home() {
     company: '',
     intent1: '',
     intent2: '',
+    KeyChallenge: '',
     // Add other fields as needed
   });
 
@@ -67,7 +68,7 @@ export default function Home() {
       <p>Dear ${formData.firstname},</p>
       <p>I hope this email finds you well. I'm reaching out to discuss how IGEL and Lenovo can help address some of the key challenges you may face at ${formData.company} in endpoint management and cloud-connected devices.</p>
         <p>Some of the key benefits include: </p>
-        <li>${answer}</li>
+        <ul>${answer}</ul>
     `;
 
     // Set the generated email content
@@ -82,7 +83,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header title="Welcome!" />
+        <Header title="Welcome, this is an email generator using the data from the form to create a contextual targetted email.!" />
 
         <div className="form-container">
           {/* Form for input on the left side */}
