@@ -76,46 +76,59 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+<div className="container">
+  <Head>
+    <title>Next.js Starter!</title>
+    <link rel="icon" href="/favicon.ico" />
+  </Head>
 
-      <main>
-        <Header title="Welcome!" />
+  <main>
+    <Header title="Welcome!" />
 
-        <div className="form-container">
-          {/* Form for input on the left side */}
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
-            <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
-            <input type="text" name="intent1" placeholder="Intent 1" required onChange={handleInputChange} />
-            <input type="text" name="intent2" placeholder="Intent 2" required onChange={handleInputChange} />
-            <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
-            {/* Other fields as needed */}
-            <button type="submit">Generate Email</button>
-          </form>
-
-          {/* Display email content on the right side */}
-          <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
+    <div className="form-container">
+      {/* Form with each input on a separate line */}
+      <form onSubmit={handleSubmit}>
+        <div className="input-container">
+          <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
         </div>
-      </main>
-
-      <Footer />
-
-      <style jsx>{`
-        .form-container {
-          display: flex;
-          justify-content: space-between;
-        }
-        .email-content {
-          width: 50%;
-          border: 1px solid #ddd;
-          padding: 10px;
-        }
-        // Add other styles as needed
-      `}</style>
+        <div className="input-container">
+          <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
+        </div>
+        <div className="input-container">
+          <input type="text" name="intent1" placeholder="Intent 1" required onChange={handleInputChange} />
+        </div>
+        <div className="input-container">
+          <input type="text" name="intent2" placeholder="Intent 2" required onChange={handleInputChange} />
+        </div>
+        <div className="input-container">
+          <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
+        </div>
+        {/* Other fields as needed */}
+        <button type="submit">Generate Email</button>
+      </form>
     </div>
-  );
-}
+
+    {/* Display email content below the form */}
+    <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
+  </main>
+
+  <Footer />
+
+  <style jsx>{`
+    .form-container {
+      /* No flex needed; stack inputs vertically */
+    }
+    .input-container {
+      /* Add space between each input */
+      margin-bottom: 10px;
+    }
+    .email-content {
+      /* Adjust width as needed; border and padding remain the same */
+      width: 100%;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    // Add other styles as needed
+  `}</style>
+</div>
+
