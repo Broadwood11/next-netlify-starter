@@ -1,7 +1,4 @@
-steps:
-  - name: Checkout code
-    uses: actions/checkout@v2
-
-  - name: Set up environment variables
-    run: echo "CONVERSATION_ID=${{ secrets.CONVERSATION_ID }}" >> $GITHUB_ENV
-    run: echo "ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}" >> $GITHUB_ENV
+ name: Set up environment variables
+  run: |
+    echo "CONVERSATION_ID=${{ secrets.CONVERSATION_ID }}" >> $GITHUB_ENV
+    echo "ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}" >> $GITHUB_ENV
