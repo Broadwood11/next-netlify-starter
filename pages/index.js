@@ -68,7 +68,7 @@ export default function Home() {
       <p>Dear ${formData.firstname},</p>
       <p>I hope this email finds you well. I'm reaching out to discuss how IGEL and Lenovo can help address some of the key challenges you may face at ${formData.company} in endpoint management and cloud-connected devices.</p>
         <p>Some of the key benefits include: </p>
-        <li>${answer}</li>
+        <ul>${answer}</ul>
     `;
 
     // Set the generated email content
