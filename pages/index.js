@@ -13,7 +13,6 @@ export default function Home() {
     company: '',
     intent1: '',
     intent2: '',
-    KeyChallenge: '',
     // Add other fields as needed
   });
 
@@ -59,7 +58,7 @@ export default function Home() {
     e.preventDefault();
 
     // Generate the question
-    const question = `Write three detailed bullet points no longer than 50 words each for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company} where possible highlight how it helps with ${formData.KeyChallenge}. If available, mention the Lenovo {device} and how it can also help. Make sure the output is in HTML list format <li>answer</li>`;
+    const question = `write a bullet point for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}`;
 
     // Fetch the answer
     const answer = await get_answer(question);
@@ -68,7 +67,7 @@ export default function Home() {
       <p>Dear ${formData.firstname},</p>
       <p>I hope this email finds you well. I'm reaching out to discuss how IGEL and Lenovo can help address some of the key challenges you may face at ${formData.company} in endpoint management and cloud-connected devices.</p>
         <p>Some of the key benefits include: </p>
-        <ul>${answer}</ul>
+        <li>${answer}</li>
     `;
 
     // Set the generated email content
@@ -83,7 +82,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header title="Welcome, this is an email generator using the data from the form to create a contextual targetted email.!" />
+        <Header title="Welcome!" />
 
         <div className="form-container">
           {/* Form for input on the left side */}
@@ -95,9 +94,8 @@ export default function Home() {
             <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
             {/* Other fields as needed */}
             <button type="submit">Generate Email</button>
-
           </form>
-            <p>Once submitted, wait for at least 10 seconds.</p>
+
           {/* Display email content on the right side */}
           <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
         </div>
