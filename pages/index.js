@@ -155,4 +155,6 @@ export default function Home() {
     }
     // Add other styles as needed
   `}</style>
-</div>
+  </div> 
+);
+
