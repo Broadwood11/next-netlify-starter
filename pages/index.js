@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 export default function Home() {
 
-  const conversation_id = process.env.CONVERSATION_ID;
-  const access_token = process.env.ACCESS_TOKEN;
+  const conversation_id = "X46dBNq2Jd79";
+  const access_token = 'kRkX76Nm8u2Og6ZoZGct4KmprDZ1PkjMVJXK1IYa';
   // State to hold the form input
   const [formData, setFormData] = useState({
     firstname: '',
@@ -59,7 +59,7 @@ export default function Home() {
     e.preventDefault();
 
     // Generate the question
-    const question = `Write three detailed bullet points no longer than 50 words each for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company} where possible highlight how it helps with ${formData.KeyChallenge}. If available, mention the Lenovo {device} and how it can also help. Make sure the output is in HTML list format <li>answer</li>`;
+    const question = `Write three detailed bullet points no longer than 50 words each for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}, where possible highlight how it helps with ${formData.KeyChallenge}: Make sure the output is in HTML list format <li>answer</li>`;
 
     // Fetch the answer
     const answer = await get_answer(question);
@@ -68,7 +68,7 @@ export default function Home() {
       <p>Dear ${formData.firstname},</p>
       <p>I hope this email finds you well. I'm reaching out to discuss how IGEL and Lenovo can help address some of the key challenges you may face at ${formData.company} in endpoint management and cloud-connected devices.</p>
         <p>Some of the key benefits include: </p>
-        <ul>${answer}</ul>
+        <li>${answer}</li>
     `;
 
     // Set the generated email content
@@ -76,47 +76,83 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+<div className="container">
+  <Head>
+    <title>Next.js Starter!</title>
+    <link rel="icon" href="/favicon.ico" />
+  </Head>
 
-      <main>
-        <Header title="Welcome, this is an email generator using the data from the form to create a contextual targetted email.!" />
+  <main>
+    <Header title="Welcome!" />
 
-        <div className="form-container">
-          {/* Form for input on the left side */}
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
-            <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
-            <input type="text" name="intent1" placeholder="Intent 1" required onChange={handleInputChange} />
-            <input type="text" name="intent2" placeholder="Intent 2" required onChange={handleInputChange} />
-            <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
-            {/* Other fields as needed */}
-            <button type="submit">Generate Email</button>
+    <div className="form-container">
+      {/* Form with each input on a separate line */}
+      <form onSubmit={handleSubmit}>
+  <div className="input-container">
+    <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
+  </div>
+  <div className="input-container">
+    <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
+  </div>
+  <div className="input-container">
+    <select name="intent1" required onChange={handleInputChange}>
+      <option value="" disabled selected>Select Intent 1</option>
+      <option value="Citrix">Citrix</option>
+      <option value="VMware">VMware</option>
+      <option value="VDI">VDI</option>
+      <option value="DaaS">DaaS</option>
+      <option value="Ransomware">Ransomware</option>
+      <option value="AVD">AVD</option>
+      <option value="W365">W365</option>
+    </select>
+  </div>
+  <div className="input-container">
+    <select name="intent2" required onChange={handleInputChange}>
+      <option value="" disabled selected>Select Intent 2</option>
+      <option value="Citrix">Citrix</option>
+      <option value="VMware">VMware</option>
+      <option value="VDI">VDI</option>
+      <option value="DaaS">DaaS</option>
+      <option value="Ransomware">Ransomware</option>
+      <option value="AVD">AVD</option>
+      <option value="W365">W365</option>
+    </select>
+  </div>
+  <div className="input-container">
+    <select name="KeyChallenge" required onChange={handleInputChange}>
+      <option value="" disabled selected>Select Key Challenge</option>
+      <option value="Security and Compliance">Security and Compliance</option>
+      <option value="Scalability and Flexibility">Scalability and Flexibility</option>
+      <option value="Simplifying Management">Simplifying Management</option>
+      <option value="Ecosystem Compatibility">Ecosystem Compatibility</option>
+      <option value="User Experience">User Experience</option>
+    </select>
+  </div>
+  {/* Other fields as needed */}
+  <button type="submit">Generate Email</button>
+</form>
 
-          </form>
-            <p>Once submitted, wait for at least 10 seconds.</p>
-          {/* Display email content on the right side */}
-          <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
-        </div>
-      </main>
 
-      <Footer />
+    {/* Display email content below the form */}
+    <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
+  </main>
 
-      <style jsx>{`
-        .form-container {
-          display: flex;
-          justify-content: space-between;
-        }
-        .email-content {
-          width: 50%;
-          border: 1px solid #ddd;
-          padding: 10px;
-        }
-        // Add other styles as needed
-      `}</style>
-    </div>
-  );
-}
+  <Footer />
+
+  <style jsx>{`
+    .form-container {
+      /* No flex needed; stack inputs vertically */
+    }
+    .input-container {
+      /* Add space between each input */
+      margin-bottom: 10px;
+    }
+    .email-content {
+      /* Adjust width as needed; border and padding remain the same */
+      width: 100%;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    // Add other styles as needed
+  `}</style>
+</div>
