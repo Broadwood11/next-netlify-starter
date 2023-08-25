@@ -78,47 +78,45 @@ export default function Home() {
   };
 
   return (
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <Header title="Welcome!" />
-
-        <div className="form-container">
-          {/* Form for input on the left side */}
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="firstname" placeholder="First Name" required onChange={handleInputChange} />
-            <input type="text" name="company" placeholder="Company" required onChange={handleInputChange} />
-            <input type="text" name="intent1" placeholder="Intent 1" required onChange={handleInputChange} />
-            <input type="text" name="intent2" placeholder="Intent 2" required onChange={handleInputChange} />
-            <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
-            {/* Other fields as needed */}
-            <button type="submit">Generate Email</button>
-          </form>
-
-          {/* Display email content on the right side */}
-          <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
-        </div>
-      </main>
-
-      <Footer />
-
-      <style jsx>{`
-        .form-container {
-          display: flex;
-          justify-content: space-between;
-        }
-        .email-content {
-          width: 50%;
-          border: 1px solid #ddd;
-          padding: 10px;
-        }
-        // Add other styles as needed
-      `}</style>
+   <div className="input-container">
+  <div className="dropdown">
+    <button className="btn btn-secondary dropdown-toggle" type="button" id="intent1Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select Intent 1
+    </button>
+    <div className="dropdown-menu" aria-labelledby="intent1Dropdown">
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent1', value: 'Citrix'}})}>Citrix</a>
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent1', value: 'VMware'}})}>VMware</a>
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent1', value: 'VDI'}})}>VDI</a>
+      {/* Add other options as needed */}
     </div>
+  </div>
+</div>
+<div className="input-container">
+  <div className="dropdown">
+    <button className="btn btn-secondary dropdown-toggle" type="button" id="intent2Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select Intent 2
+    </button>
+    <div className="dropdown-menu" aria-labelledby="intent2Dropdown">
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent2', value: 'Citrix'}})}>Citrix</a>
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent2', value: 'VMware'}})}>VMware</a>
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent2', value: 'VDI'}})}>VDI</a>
+      {/* Add other options as needed */}
+    </div>
+  </div>
+</div>
+<div className="input-container">
+  <div className="dropdown">
+    <button className="btn btn-secondary dropdown-toggle" type="button" id="keyChallengeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select Key Challenge
+    </button>
+    <div className="dropdown-menu" aria-labelledby="keyChallengeDropdown">
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'KeyChallenge', value: 'Security and Compliance'}})}>Security and Compliance</a>
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'KeyChallenge', value: 'Scalability and Flexibility'}})}>Scalability and Flexibility</a>
+      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'KeyChallenge', value: 'Simplifying Management'}})}>Simplifying Management</a>
+      {/* Add other options as needed */}
+    </div>
+  </div>
+</div>
+
   );
 }
