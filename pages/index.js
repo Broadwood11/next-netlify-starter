@@ -88,7 +88,7 @@ export default function Home() {
     </div>
   </div>
 </div>
-<div className="input-container">
+<div class="input-container">
   <div className="dropdown">
     <button className="btn btn-secondary dropdown-toggle" type="button" id="intent2Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Select Intent 2
