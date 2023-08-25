@@ -13,6 +13,7 @@ export default function Home() {
     company: '',
     intent1: '',
     intent2: '',
+    KeyChallenge: '',
     // Add other fields as needed
   });
 
@@ -58,7 +59,7 @@ export default function Home() {
     e.preventDefault();
 
     // Generate the question
-    const question = `write a bullet point for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}`;
+    const question = `Write three detailed bullet points no longer than 50 words each for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}, where possible highlight how it helps with ${formData.KeyChallenge}: Make sure the output is in HTML list format <li>answer</li>`;
 
     // Fetch the answer
     const answer = await get_answer(question);
