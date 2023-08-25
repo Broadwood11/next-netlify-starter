@@ -58,7 +58,7 @@ export default function Home() {
     e.preventDefault();
 
     // Generate the question
-    const question = `write a bullet point for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}`;
+    const question = `write three bullet points for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}`;
 
     // Fetch the answer
     const answer = await get_answer(question);
