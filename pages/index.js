@@ -95,9 +95,9 @@ export default function Home() {
             <input type="text" name="KeyChallenge" placeholder="Key Challenge" required onChange={handleInputChange} />
             {/* Other fields as needed */}
             <button type="submit">Generate Email</button>
-            <p>Once submitted, wait for at least 10 seconds.</p>
-          </form>
 
+          </form>
+            <p>Once submitted, wait for at least 10 seconds.</p>
           {/* Display email content on the right side */}
           <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
         </div>
