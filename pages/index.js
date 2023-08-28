@@ -115,7 +115,7 @@ export default function Home() {
   </p>
     </form>
 </NetlifyForm>
-<div className="email-content", dangerouslySetInnerHTML={{__html: emailContent}} />
+  <div dangerouslySetInnerHTML={{__html: emailContent}} className='email-content'/>
   </div>
   );
 }
