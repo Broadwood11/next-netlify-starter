@@ -80,34 +80,38 @@ export default function Home() {
   };
 
   return (
-  <form name="contact" method="POST" data-netlify="true">
+<form name="contact" method="POST" data-netlify="true">
   <p>
-    <label>Customer's Company Name: <input type="text" name="Company" /></label>
+    <label>Customer's Company Name: <input type="text" name="Company" required onChange={handleInputChange} /></label>
   </p>
   <p>
-    <label>What are they Interested in?: <select name="intent1[]" multiple>
-      <option value="Citrix">Citrix</option>
-      <option value="Vmware">VMware</option>
-      <option value="AVD">AVD</option>
-      <option value="Ransomware">Ransomware</option>
-      <option value="VDI">VDI</option>
-    </select></label>
+    <label>What are they Interested in?: 
+      <select name="intent1" required multiple onChange={handleInputChange}>
+        <option value="Citrix">Citrix</option>
+        <option value="Vmware">VMware</option>
+        <option value="AVD">AVD</option>
+        <option value="Ransomware">Ransomware</option>
+        <option value="VDI">VDI</option>
+      </select>
+    </label>
   </p>
   <p>
-    <label>Key Challenge: <select name="KeyChallenge[]" multiple>
-      <option value="Security and compliance">Security and compliance</option>
-      <option value="Simplified Management">Simplified Management</option>
-      <option value="User Experience">User Experience</option>
-      <option value="Scalability and Flexibility">Scalability and Flexibility</option>
-      <option value="Ecosystem Compatability">Ecosystem Compatability</option>
-    </select></label>
+    <label>Key Challenge: 
+      <select name="KeyChallenge" required multiple onChange={handleInputChange}>
+        <option value="Security and compliance">Security and compliance</option>
+        <option value="Simplified Management">Simplified Management</option>
+        <option value="User Experience">User Experience</option>
+        <option value="Scalability and Flexibility">Scalability and Flexibility</option>
+        <option value="Ecosystem Compatability">Ecosystem Compatability</option>
+      </select>
+    </label>
   </p>
-
   <p>
-    <button type="submit">Send</button>
+    <button type="submit">Generate Email</button>
   </p>
 </form>
-
+{/* Display email content on the right side */}
+<div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
 
   );
 }
