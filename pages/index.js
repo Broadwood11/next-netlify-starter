@@ -82,20 +82,27 @@ export default function Home() {
   return (
   <form name="contact" method="POST" data-netlify="true">
   <p>
-    <label>Customer's Company Name: <input type="text" name="company" /></label>
+    <label>Customer's Company Name: <input type="text" name="Company" /></label>
   </p>
   <p>
-    <label>What are they Interested in?: <input type="text" name="intent1" /></label>
-  </p>
-  <p>
-    <label>Key Challenge: <select name="role[]" multiple>
-      <option value="Security and compliance">Security and compliance</option>
-      <option value="Simplified Management">Simplified Management</option>
+    <label>What are they Interested in?: <select name="intent1[]" multiple>
+      <option value="Citrix">Citrix</option>
+      <option value="Vmware">VMware</option>
+      <option value="AVD">AVD</option>
+      <option value="Ransomware">Ransomware</option>
+      <option value="VDI">VDI</option>
     </select></label>
   </p>
   <p>
-    <label>Message: <textarea name="message"></textarea></label>
+    <label>Key Challenge: <select name="KeyChallenge[]" multiple>
+      <option value="Security and compliance">Security and compliance</option>
+      <option value="Simplified Management">Simplified Management</option>
+      <option value="User Experience">User Experience</option>
+      <option value="Scalability and Flexibility">Scalability and Flexibility</option>
+      <option value="Ecosystem Compatability">Ecosystem Compatability</option>
+    </select></label>
   </p>
+
   <p>
     <button type="submit">Send</button>
   </p>
