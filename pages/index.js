@@ -110,7 +110,6 @@ export default function Home() {
     <button type="submit">Generate Email</button>
   </p>
 </form>
-{/* Display email content on the right side */}
 <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
 
   );
