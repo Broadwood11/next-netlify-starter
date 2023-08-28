@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import DOMPurify from 'dompurify';
+import { NetlifyForm } from 'react-netlify-forms';
 import { useState } from 'react';
 
 export default function Home() {
@@ -42,7 +44,8 @@ export default function Home() {
       }
     };
   // State to hold the generated email content
-  const [emailContent, setEmailContent] = useState('');
+  const { intent1, company } = e.data;
+
 
   // Function to handle form input changes
   const handleInputChange = (e) => {
@@ -55,7 +58,7 @@ export default function Home() {
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    netlifySubmit(e);
 
     // Generate the question
     const question = `Write three detailed bullet points no longer than 50 words each for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}, where possible highlight how it helps with ${formData.KeyChallenge}: Make sure the output is in HTML list format <li>answer</li>`;
@@ -74,18 +77,21 @@ export default function Home() {
       <p></p>
       <p>[Name]</p>
     `;
+    const emailContent = e.data;
+    setEmailContent(emailContent);
 
-    // Set the generated email content
-    setEmailContent(content);
   };
+const cleanHTML = DOMPurify.sanitize(emailContent);
 
   return (
-<form name="contact" method="POST" data-netlify="true">
+<NetlifyForm name="contact">
+
+<form name="contact" onSubmit={handleSubmit} >
   <p>
     <label>Customer's Company Name: <input type="text" name="Company" required onChange={handleInputChange} /></label>
   </p>
   <p>
-    <label>What are they Interested in?: 
+    <label>What are they Interested in?:
       <select name="intent1" required multiple onChange={handleInputChange}>
         <option value="Citrix">Citrix</option>
         <option value="Vmware">VMware</option>
@@ -96,7 +102,7 @@ export default function Home() {
     </label>
   </p>
   <p>
-    <label>Key Challenge: 
+    <label>Key Challenge:
       <select name="KeyChallenge" required multiple onChange={handleInputChange}>
         <option value="Security and compliance">Security and compliance</option>
         <option value="Simplified Management">Simplified Management</option>
@@ -109,7 +115,9 @@ export default function Home() {
   <p>
     <button type="submit">Generate Email</button>
   </p>
-</form>
-<div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
+    </form>
+</NetlifyForm>
+,
+  <div dangerouslySetInnerHTML={{__html: cleanHTML}} />
   );
 }
