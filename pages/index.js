@@ -121,4 +121,3 @@ const cleanHTML = DOMPurify.sanitize(emailContent);
   <div dangerouslySetInnerHTML={{__html: cleanHTML}} />
   );
 }
-export default Home;
