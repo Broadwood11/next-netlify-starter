@@ -110,7 +110,6 @@ export default function Home() {
     <button type="submit">Generate Email</button>
   </p>
 </form>
-<div name="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
-
+<div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
   );
 }
