@@ -57,8 +57,11 @@ export default function Home() {
   };
 
   // Function to handle form submission
-  const handleSubmit = async (e) => {
-    netlifySubmit(e);
+  const handleSubmit = (e) => {
+
+  const {intent1} = e.data;
+
+}
 
     // Generate the question
     const question = `Write three detailed bullet points no longer than 50 words each for use in an email highlighting how IGEL and Lenovo can help with ${formData.intent1} and ${formData.intent2} for ${formData.company}, where possible highlight how it helps with ${formData.KeyChallenge}: Make sure the output is in HTML list format <li>answer</li>`;
