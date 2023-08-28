@@ -117,7 +117,7 @@ const cleanHTML = DOMPurify.sanitize(emailContent);
   </p>
     </form>
 </NetlifyForm>
-
+,
   <div dangerouslySetInnerHTML={{__html: cleanHTML}} />
   );
 }
