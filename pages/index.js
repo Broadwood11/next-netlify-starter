@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import DOMPurify from 'dompurify';
 import { NetlifyForm } from 'react-netlify-forms';
 import { useState } from 'react';
 
@@ -115,6 +116,8 @@ export default function Home() {
   </p>
     </form>
 </NetlifyForm>
-  <div dangerouslySetInnerHTML={{__html: emailContent}} />
+const cleanHTML = DOMPurify.sanitize(emailContent); 
+
+  <div dangerouslySetInnerHTML={{__html: cleanHTML}} />
   );
 }
