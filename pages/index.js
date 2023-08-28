@@ -81,6 +81,7 @@ export default function Home() {
     setEmailContent(emailContent);
 
   };
+const cleanHTML = DOMPurify.sanitize(emailContent); 
 
   return (
 <NetlifyForm name="contact">
@@ -115,9 +116,9 @@ export default function Home() {
     <button type="submit">Generate Email</button>
   </p>
     </form>
-</NetlifyForm>,
-const cleanHTML = DOMPurify.sanitize(emailContent); 
+</NetlifyForm>
 
   <div dangerouslySetInnerHTML={{__html: cleanHTML}} />
   );
 }
+export default Home;
