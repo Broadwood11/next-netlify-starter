@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export"
-    "format": "prettier --write"
   },
   "dependencies": {
     "cypress": "^10.0.3",
