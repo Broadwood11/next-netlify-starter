@@ -113,6 +113,7 @@ export default function Home() {
   <p>
     <button type="submit">Generate Email</button>
   </p>
+    </form>
 </NetlifyForm>
 
 <div className="email-content" dangerouslySetInnerHTML={{ __html: emailContent }}></div>
