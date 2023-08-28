@@ -80,45 +80,27 @@ export default function Home() {
   };
 
   return (
-   <div className="input-container">
-  <div className="dropdown">
-    <button className="btn btn-secondary dropdown-toggle" type="button" id="intent1Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Select Intent 1
-    </button>
-    <div className="dropdown-menu" aria-labelledby="intent1Dropdown">
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent1', value: 'Citrix'}})}>Citrix</a>
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent1', value: 'VMware'}})}>VMware</a>
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent1', value: 'VDI'}})}>VDI</a>
-      {/* Add other options as needed */}
-    </div>
-  </div>
-</div>
-<div class="input-container">
-  <div className="dropdown">
-    <button className="btn btn-secondary dropdown-toggle" type="button" id="intent2Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Select Intent 2
-    </button>
-    <div className="dropdown-menu" aria-labelledby="intent2Dropdown">
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent2', value: 'Citrix'}})}>Citrix</a>
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent2', value: 'VMware'}})}>VMware</a>
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'intent2', value: 'VDI'}})}>VDI</a>
-      {/* Add other options as needed */}
-    </div>
-  </div>
-</div>
-<div className="input-container">
-  <div className="dropdown">
-    <button className="btn btn-secondary dropdown-toggle" type="button" id="keyChallengeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Select Key Challenge
-    </button>
-    <div className="dropdown-menu" aria-labelledby="keyChallengeDropdown">
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'KeyChallenge', value: 'Security and Compliance'}})}>Security and Compliance</a>
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'KeyChallenge', value: 'Scalability and Flexibility'}})}>Scalability and Flexibility</a>
-      <a className="dropdown-item" onClick={() => handleInputChange({target: {name: 'KeyChallenge', value: 'Simplifying Management'}})}>Simplifying Management</a>
-      {/* Add other options as needed */}
-    </div>
-  </div>
-</div>
+  <form name="contact" method="POST" data-netlify="true">
+  <p>
+    <label>Customer's Company Name: <input type="text" name="company" /></label>
+  </p>
+  <p>
+    <label>What are they Interested in?: <input type="text" name="intent1" /></label>
+  </p>
+  <p>
+    <label>Key Challenge: <select name="role[]" multiple>
+      <option value="Security and compliance">Security and compliance</option>
+      <option value="Simplified Management">Simplified Management</option>
+    </select></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
+
 
   );
 }
