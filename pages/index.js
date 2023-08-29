@@ -42,10 +42,7 @@ export default function Home() {
         console.error('Error:', response.status);
         return 'Error fetching answer';
       }
-    };
-  // State to hold the generated email content
-  const { intent1, company } = e.data;
-
+    };  
 
   // Function to handle form input changes
   const handleInputChange = (e) => {
@@ -58,8 +55,8 @@ export default function Home() {
 
   // Function to handle form submission
   const handleSubmit = (e) => {
-
-  const {intent1} = e.data;
+  e.preventDefault();
+  const { firstname, company, intent1, KeyChallenge } = e.data;
 
 }
 
